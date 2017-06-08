@@ -3,10 +3,13 @@
  * @description: configuration file
  */
 const path = require('path');
+const packageJSON = require('./package.json');
 
 let APP_DIR = path.join(__dirname, 'src/app'),
     BUILD_DIR = path.join(__dirname, 'src/public');
 let config = {
+    name: packageJSON.name,
+    version: packageJSON.version,
     directories: {
         application: APP_DIR,
         build: BUILD_DIR,
@@ -25,7 +28,7 @@ let config = {
     },
     server: {
         port: 3000,
-        contextPath: "/"
+        contextPath: "/main"
     },
     session: {
         name: 'undefined',
