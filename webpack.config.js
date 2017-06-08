@@ -18,6 +18,10 @@ module.exports = {
                 test: /\.jsx?/,
                 include: config.directories.application,
                 loader: "babel-loader"
+            }, {
+                test: /\.css$/,
+                include: config.directories.application,
+                loader: "style-loader!css-loader?sourceMap&modules&localIdentName=[local]"
             }
         ]
     }

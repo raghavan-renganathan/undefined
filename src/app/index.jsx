@@ -4,16 +4,33 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+// Importing components
+import Header from './layouts/header.jsx';
+import Container from './layouts/container.jsx';
+import Footer from './layouts/footer.jsx';
+import Content from './modules/content.jsx';
+
+// Importing CSS
+import styles from './stylesheets/style.css';
+import helpers from './stylesheets/helpers.css';
+
 const loadedStates = ['complete', 'loaded', 'interactive'];
 
-class App extends React.Component {
+class MainContent extends React.Component {
     render () {
-        return <h1>Hello World!</h1>;
+        return (
+            <Container className="full-height full-width">
+                <Header value="Welcome to the undefined!"/>
+                <Content className="p-t-60 p-l-20 p-b-20 full-height full-width"/>
+                <Footer value="version 1.0"/>
+            </Container>
+        );
     }
 }
 
 function initialize() {
-    ReactDOM.render(<App/>, document.getElementById('__application-container__'));
+    ReactDOM.render(<MainContent/>, document.getElementById('__application-container__'));
 }
 
 if (loadedStates.includes(document.readyState) && document.body) {
