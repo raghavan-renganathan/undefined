@@ -11,6 +11,7 @@ import Container from './layouts/container.jsx';
 import Footer from './layouts/footer.jsx';
 import Content from './components/content.jsx';
 import Title from './components/title.jsx';
+import FootNote from './components/footNote.jsx';
 
 // Importing CSS
 import bootstrap from './stylesheets/assets/plugins/boostrap/css/bootstrap.css';
@@ -28,7 +29,9 @@ class MainContent extends React.Component {
                     <Title orientation="left" value="undefined"/>
                 </Header>
                 <Content className="middle-content"/>
-                <Footer value="version 1.0"/>
+                <Footer className="padding-10">
+                    <FootNote orientation="right" value="version 1.0"/>
+                </Footer>
             </Container>
         );
     }

@@ -7,7 +7,7 @@ import React from 'react';
 class Footer extends React.Component {
     render () {
         return (
-            <div className="footer full-width">
+            <div className={"footer full-width " + this.props.className || ""}>
                 <span className="pull-right">
                     {this.props.value}
                     {this.props.children}
