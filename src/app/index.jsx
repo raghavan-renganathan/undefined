@@ -12,8 +12,8 @@ import Footer from './layouts/footer.jsx';
 import Content from './modules/content.jsx';
 
 // Importing CSS
-import styles from './stylesheets/style.css';
-import helpers from './stylesheets/pages/pages/css/pages.css';
+import styles from './stylesheets/assets/css/style.css';
+import helpers from './stylesheets/pages/css/pages.css';
 
 const loadedStates = ['complete', 'loaded', 'interactive'];
 
