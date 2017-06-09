@@ -6,19 +6,21 @@ const path = require('path');
 const packageJSON = require('./package.json');
 
 let APP_DIR = path.join(__dirname, 'src/app'),
-    BUILD_DIR = path.join(__dirname, 'src/public');
+    BUILD_DIR = path.join(__dirname, 'public');
 let config = {
     name: packageJSON.name,
     version: packageJSON.version,
     directories: {
         application: APP_DIR,
         build: BUILD_DIR,
-        publicDir: path.join(__dirname, 'src/public'),
-        images: path.join(__dirname, 'src/images')
+        publicDir: path.join(__dirname, 'public'),
+        images: path.join(__dirname, 'src/images'),
+        template: path.join(__dirname, 'src/templates')
     },
     files: {
         entryFile: 'index.jsx',
         buildFile: 'bundle.js',
+        template: 'template.html',
         favicon: 'favicon.ico'
     },
     ssl: {

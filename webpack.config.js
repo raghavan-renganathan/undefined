@@ -6,9 +6,18 @@ const config = require('./config');
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const extractLess = new ExtractTextPlugin({
+const HTMLWebpackPlugin = require('html-webpack-plugin');
+const extractLESS = new ExtractTextPlugin({
+    filename: path.join('css/userStyleSheet.css'),
+    disable: process.env.NODE_ENV === "development"
+});
+const extractCSS = new ExtractTextPlugin({
     filename: path.join('css/style.css'),
     disable: process.env.NODE_ENV === "development"
+});
+const createHTML = new HTMLWebpackPlugin({
+    title: config.name,
+    template: path.join(config.directories.template, config.files.template)
 });
 
 module.exports = {
@@ -26,11 +35,14 @@ module.exports = {
             }, {
                 test: /\.css$/,
                 include: config.directories.application,
-                loader: "style-loader!css-loader?sourceMap&modules&localIdentName=[local]"
+                use: extractCSS.extract({
+                    use: ["css-loader?sourceMap&modules&localIdentName=[local]"],
+                    fallback: "style-loader"
+                })
             }, {
                 test: /\.less$/,
                 include: config.directories.application,
-                use: extractLess.extract({
+                use: extractLESS.extract({
                     use: ["css-loader", "less-loader"],
                     fallback: "style-loader"
                 })
@@ -42,6 +54,8 @@ module.exports = {
         ]
     },
     plugins: [
-        extractLess
+        extractCSS,
+        extractLESS,
+        createHTML
     ]
 };
