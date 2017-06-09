@@ -22,6 +22,10 @@ module.exports = {
                 test: /\.css$/,
                 include: config.directories.application,
                 loader: "style-loader!css-loader?sourceMap&modules&localIdentName=[local]"
+            }, {
+                test: /\.(png|jpg|woff|woff2|eot|ttf|svg)$/,
+                include: config.directories.application,
+                loader: "url-loader?limit=1000000"
             }
         ]
     }

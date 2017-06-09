@@ -13,7 +13,7 @@ import Content from './modules/content.jsx';
 
 // Importing CSS
 import styles from './stylesheets/style.css';
-import helpers from './stylesheets/helpers.css';
+import helpers from './stylesheets/pages/pages/css/pages.css';
 
 const loadedStates = ['complete', 'loaded', 'interactive'];
 
