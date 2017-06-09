@@ -28,7 +28,10 @@ let config = {
     },
     server: {
         port: 3000,
-        contextPath: "/main"
+        contextPath: "/main",
+        assetsPath: {
+            images: "/images"
+        }
     },
     session: {
         name: 'undefined',

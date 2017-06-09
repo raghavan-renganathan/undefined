@@ -36,6 +36,7 @@ app.use(cookieParser());
 
 // setting up base directory
 app.use(config.server.contextPath, express.static(config.directories.publicDir));
+app.use(config.server.assetsPath.images, express.static(config.directories.images));
 
 // setting up routes,
 app.use('/', index);
