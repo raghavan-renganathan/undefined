@@ -8,9 +8,9 @@ class Footer extends React.Component {
     render () {
         return (
             <div className="footer full-width">
-                <p className="pull-right v-middle">
+                <span className="pull-right">
                     {this.props.value}
-                </p>
+                </span>
             </div>
         )
     }

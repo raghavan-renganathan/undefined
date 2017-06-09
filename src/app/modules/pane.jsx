@@ -8,7 +8,7 @@ class Pane extends React.Component {
     render () {
         let paneType = this.props.orientation === 'left' ? 'left-pane' : 'right-pane';
         return (
-            <div className={`full-height ${paneType}`}>
+            <div className={`full-height ${paneType} ${this.props.className}`}>
                 {this.props.children}
             </div>
         );

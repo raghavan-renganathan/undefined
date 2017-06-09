@@ -7,8 +7,9 @@ import React from 'react';
 class Header extends React.Component {
     render () {
         return (
-            <div className="header full-width">
+            <div className={"header full-width " + this.props.className || ""}>
                 {this.props.value}
+                {this.props.children}
             </div>
         )
     }

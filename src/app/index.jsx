@@ -12,8 +12,10 @@ import Footer from './layouts/footer.jsx';
 import Content from './modules/content.jsx';
 
 // Importing CSS
-import styles from './stylesheets/assets/css/style.css';
-import helpers from './stylesheets/pages/css/pages.css';
+import bootstrap from './stylesheets/assets/plugins/boostrap/css/bootstrap.css';
+import fontAwesome from './stylesheets/assets/plugins/font-awesome/css/font-awesome.css';
+import pages from './stylesheets/pages/css/pages.css';
+import styles from './stylesheets/assets/less/style.less';
 
 const loadedStates = ['complete', 'loaded', 'interactive'];
 
@@ -22,7 +24,7 @@ class MainContent extends React.Component {
         return (
             <Container className="full-height full-width">
                 <Header value="Welcome to the undefined!"/>
-                <Content className="p-t-60 p-l-20 p-b-20 full-height full-width"/>
+                <Content className="middle-content"/>
                 <Footer value="version 1.0"/>
             </Container>
         );
