@@ -36,7 +36,7 @@ module.exports = {
                 test: /\.css$/,
                 include: config.directories.application,
                 use: extractCSS.extract({
-                    use: ["css-loader?sourceMap&modules&localIdentName=[local]"],
+                    use: ["css-loader?sourceMap&components&localIdentName=[local]"],
                     fallback: "style-loader"
                 })
             }, {

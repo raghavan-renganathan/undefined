@@ -37,7 +37,7 @@ function require(path, parent, orig) {
 }
 
 /**
- * Registered modules.
+ * Registered components.
  */
 
 require.modules = {};

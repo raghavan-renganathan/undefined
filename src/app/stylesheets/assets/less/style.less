@@ -43,6 +43,10 @@
   align-items: center;
 }
 
+.menu-horizontal>span {
+  display: flex;
+}
+
 .menu-horizontal>.menu-item, .menu-horizontal>span>.menu-item {
   height: 40px;
   -webkit-flex: none;
@@ -53,6 +57,9 @@
   border-radius: 50%;
   transition: background-color .18s ease;
   cursor: pointer;
+  &:hover {
+    background-color: rgba(140,140,140,0.61);
+  }
 }
 
 button.icon {

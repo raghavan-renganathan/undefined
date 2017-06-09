@@ -8,7 +8,9 @@ class MenuItem extends React.Component {
     render () {
         return (
             <div className="menu-item">
-                <button className={`icon ${this.props.type}`} title={this.props.title}/>
+                <button className="icon" title={this.props.title}>
+                    <i className={this.props.type} />
+                </button>
             </div>
         );
     }

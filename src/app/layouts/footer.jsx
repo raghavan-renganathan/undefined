@@ -10,6 +10,7 @@ class Footer extends React.Component {
             <div className="footer full-width">
                 <span className="pull-right">
                     {this.props.value}
+                    {this.props.children}
                 </span>
             </div>
         )

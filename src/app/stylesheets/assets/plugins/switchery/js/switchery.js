@@ -56,7 +56,7 @@ require.helper.semVerSort = function(a, b) {
 
 /**
  * Find and require a module which name starts with the provided name.
- * If multiple modules exists, the highest semver is used. 
+ * If multiple components exists, the highest semver is used.
  * This function can only be used for remote dependencies.
 
  * @param {String} name - module name: `user~repo`
@@ -106,7 +106,7 @@ require.latest = function (name, returnPath) {
 }
 
 /**
- * Registered modules.
+ * Registered components.
  */
 
 require.modules = {};

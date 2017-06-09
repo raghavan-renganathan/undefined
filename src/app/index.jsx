@@ -9,7 +9,8 @@ import ReactDOM from 'react-dom';
 import Header from './layouts/header.jsx';
 import Container from './layouts/container.jsx';
 import Footer from './layouts/footer.jsx';
-import Content from './modules/content.jsx';
+import Content from './components/content.jsx';
+import Title from './components/title.jsx';
 
 // Importing CSS
 import bootstrap from './stylesheets/assets/plugins/boostrap/css/bootstrap.css';
@@ -23,7 +24,9 @@ class MainContent extends React.Component {
     render () {
         return (
             <Container className="full-height full-width">
-                <Header value="Welcome to the undefined!"/>
+                <Header className="padding-10">
+                    <Title orientation="left" value="undefined"/>
+                </Header>
                 <Content className="middle-content"/>
                 <Footer value="version 1.0"/>
             </Container>

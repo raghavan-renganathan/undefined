@@ -1,1 +1,73 @@
-.footer{position:relative;bottom:0;display:block;height:60px;width:100%;padding:0 20px 0 0;z-index:800;background-color:#fff;border-top:1px solid hsla(0,0%,90%,.7)}.middle-content{height:calc(100% - 122px)}.round{-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%}.menu-header{flex:none;justify-content:flex-end;display:flex}.avatar-image{flex:1}.menu-horizontal{display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center}.menu-horizontal>.menu-item,.menu-horizontal>span>.menu-item{height:40px;-webkit-flex:none;flex:none;margin-right:10px;position:relative;padding:8px;border-radius:50%;transition:background-color .18s ease;cursor:pointer}button.icon{border:0;padding:0;margin:0;background:none;outline:none;cursor:pointer;font-family:inherit}.icon{width:24px;height:24px;font-size:24px}
+/*
+
+* Override Pages default styles or create your own styles here
+
+*/
+.footer {
+  position: relative;
+  bottom: 0;
+  display: block;
+  height: 60px;
+  width: 100%;
+  padding: 0 20px 0 0;
+  z-index: 800;
+  background-color: #fff;
+  border-top: 1px solid rgba(230, 230, 230, 0.7);
+}
+.middle-content {
+  height: calc(100% - 122px);
+}
+.round {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+.menu-header {
+  flex: none;
+  justify-content: flex-end;
+  display: flex;
+}
+.avatar-image {
+  flex: 1;
+}
+.menu-horizontal {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.menu-horizontal > span {
+  display: flex;
+}
+.menu-horizontal > .menu-item,
+.menu-horizontal > span > .menu-item {
+  height: 40px;
+  -webkit-flex: none;
+  flex: none;
+  margin-right: 10px;
+  position: relative;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.18s ease;
+  cursor: pointer;
+}
+.menu-horizontal > .menu-item:hover,
+.menu-horizontal > span > .menu-item:hover {
+  background-color: rgba(140, 140, 140, 0.61);
+}
+button.icon {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+.icon {
+  width: 24px;
+  height: 24px;
+  font-size: 24px;
+}
+
+/*# sourceMappingURL=userStyleSheet.css.map*/

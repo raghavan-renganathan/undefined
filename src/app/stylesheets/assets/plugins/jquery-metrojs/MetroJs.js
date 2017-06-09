@@ -116,9 +116,9 @@ $.fn.liveTile.defaults = {
     triggerDelay: function (idx) {          // used by flip-list to decide how random the tile flipping should be
         return Math.random() * 3000;
     },
-    swap: '',                               // which swap modules are active for this tile (image, html)
-    swapFront: '-',                         // override the available swap modules for the front face
-    swapBack: '-',                          // override the available swap modules for the back face
+    swap: '',                               // which swap components are active for this tile (image, html)
+    swapFront: '-',                         // override the available swap components for the front face
+    swapBack: '-',                          // override the available swap components for the back face
     contentModules: []
 };
 // public methods that can be called via .liveTile(method name)
@@ -129,7 +129,7 @@ var pubMethods = {
         // checks for browser feature support to enable hardware acceleration                        
         metrojs.checkCapabilities(settings);
         helperMethods.getBrowserPrefix();
-        // setup the default content modules
+        // setup the default content components
         if ($.fn.liveTile.contentModules.hasContentModule("image") == -1)
             $.fn.liveTile.contentModules.addContentModule("image", defaultModules.imageSwap);
         if ($.fn.liveTile.contentModules.hasContentModule("html") == -1)
@@ -555,7 +555,7 @@ var privMethods = {
         // add a return stop
         if (tdata.stops.length === 1)
             tdata.stops.push("0px");
-        // add content modules, start with global swaps            
+        // add content components, start with global swaps
         var swaps = tdata.swap.replace(' ', '').split(",");
         // get the front and back swap data
         var sf = useData ? this.getDataOrDefault($tile, "swap-front", stgs.swapFront) : stgs.swapFront;
@@ -574,7 +574,7 @@ var privMethods = {
                 swaps.push(tdata.swapBack[i]);
         }
         tdata.swap = swaps;        
-        // add all required content modules for the swaps
+        // add all required content components for the swaps
         for (i = 0; i < swaps.length; i++) {
                 if (swaps[i].length > 0) {
                         var moduleIdx = $.fn.liveTile.contentModules.hasContentModule(swaps[i]);
@@ -632,7 +632,7 @@ var privMethods = {
                 mergedData.listData.push(sdata);
             });
         }
-        // get any additional options from the modules
+        // get any additional options from the components
         for (i = 0; i < tdata.contentModules.length; i++){
             if (typeof (mergedData.contentModules[i].initData) === "function")
                 mergedData.contentModules[i].initData(mergedData, $tile);
@@ -1265,7 +1265,7 @@ var privMethods = {
         tdata.loopCount = loopCount;
         var faded = function () {
             resumeTimer();
-            // run content modules and animationComplete callback
+            // run content components and animationComplete callback
             privMethods.runContenModules(tdata, tdata.faces.$front, tdata.faces.$back);
             tdata.animationComplete.call($tile[0], tdata, tdata.faces.$front, tdata.faces.$back);
         };
@@ -1335,7 +1335,7 @@ var privMethods = {
             if (tdata.mode != "carousel") {
                 resumeTimer();
             }
-            // run content modules and animationComplete callback            
+            // run content components and animationComplete callback
             privMethods.runContenModules(tdata, tdata.faces.$front, tdata.faces.$back, tdata.currentIndex);
             tdata.animationComplete.call($tile[0], tdata, tdata.faces.$front, tdata.faces.$back);
             tdata = null;
@@ -1579,7 +1579,7 @@ var privMethods = {
                     resetDir = direction === "vertical" ? "rotateX(0deg)" : "rotateY(0deg)";
                     newCss = helperMethods.appendStyleProperties({}, ["transform", "transition"], [resetDir, "all 0s " + tdata.haTransFunc + " 0s"]);
                     $front.css(newCss);
-                    //call content modules
+                    //call content components
                     privMethods.runContenModules(tdata, $front, $back, index);
                     if (raiseEvt) {
                         resumeTimer();

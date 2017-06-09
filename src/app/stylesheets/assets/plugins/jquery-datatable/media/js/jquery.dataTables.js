@@ -2031,7 +2031,7 @@
 			settings._iDisplayStart = 0;
 		}
 	
-		// Let any modules know about the draw hold position state (used by
+		// Let any components know about the draw hold position state (used by
 		// scrolling internally)
 		settings._drawHold = holdPosition;
 	
