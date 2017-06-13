@@ -10,8 +10,6 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 
-const index = require('./routes/index');
-const users = require('./routes/users');
 const config = require('./config');
 
 const app = express();
@@ -35,12 +33,13 @@ app.use(session(config.session));
 app.use(cookieParser());
 
 // setting up base directory
-app.use(config.server.contextPath, express.static(config.directories.publicDir));
+app.use(config.server.assetsPath.publicDir, express.static(config.directories.publicDir));
 app.use(config.server.assetsPath.images, express.static(config.directories.images));
 
 // setting up routes,
-app.use('/', index);
-app.use('/users', users);
+Object.keys(config.server.routes). forEach((route) => {
+    app.use(route, require(path.resolve('./routes', config.server.routes[route] + '.js')));
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

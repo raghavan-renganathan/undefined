@@ -21,6 +21,8 @@ let config = {
         entryFile: 'index.jsx',
         loginFile: 'login.jsx',
         buildFile: '[name].bundle.js',
+        mainHTML: 'index.html',
+        loginHTML: 'login.html',
         mainTemplate: 'main.html',
         loginTemplate: 'login.html',
         favicon: 'favicon.ico'
@@ -32,9 +34,16 @@ let config = {
     },
     server: {
         port: 3000,
-        contextPath: "/main",
+        contextPath: '/main',
+        routes: {
+            '/': 'index',
+            '/users': 'users',
+            '/login': 'login',
+            '/main': 'main'
+        },
         assetsPath: {
-            images: "/images"
+            images: '/images',
+            publicDir: '/'
         }
     },
     session: {

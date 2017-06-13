@@ -8,11 +8,11 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const extractLESS = new ExtractTextPlugin({
-    filename: path.join('css/userStyleSheet.css'),
+    filename: path.join('css', 'userStyleSheet.css'),
     disable: process.env.NODE_ENV === "development"
 });
 const extractCSS = new ExtractTextPlugin({
-    filename: path.join('css/style.css'),
+    filename: path.join('css', 'style.css'),
     disable: process.env.NODE_ENV === "development"
 });
 const createHTML = [];
