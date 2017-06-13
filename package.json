@@ -8,9 +8,11 @@
     "build": "./node_modules/.bin/webpack -p",
     "prestart": "npm run build",
     "start": "./node_modules/.bin/forever start ./bin/www",
+    "server-start": "./node_modules/.bin/forever start ./bin/www",
     "stop": "./node_modules/.bin/forever stop ./bin/www",
     "prerestart": "npm run build",
     "restart": "./node_modules/.bin/forever restart ./bin/www",
+    "server-restart": "./node_modules/.bin/forever restart ./bin/www",
     "status": "./node_modules/.bin/forever list",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
