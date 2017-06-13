@@ -15,13 +15,18 @@ const extractCSS = new ExtractTextPlugin({
     filename: path.join('css/style.css'),
     disable: process.env.NODE_ENV === "development"
 });
-const createHTML = new HTMLWebpackPlugin({
-    title: config.name,
-    template: path.join(config.directories.template, config.files.template)
+const createHTML = [];
+Object.keys(config.chunks).forEach((chunk) => {
+    createHTML.push(new HTMLWebpackPlugin({
+        title: chunk === 'login' ? `Login to ${config.name}` : config.name,
+        template: path.join(config.directories.template, config.files[`${chunk}Template`]),
+        filename: chunk === 'main' ? 'index.html' : `${chunk}.html`,
+        chunks: [chunk]
+    }));
 });
 
 module.exports = {
-    entry: path.join(config.directories.application, config.files.entryFile),
+    entry: config.chunks,
     output: {
         path: config.directories.build,
         filename: config.files.buildFile
@@ -56,6 +61,6 @@ module.exports = {
     plugins: [
         extractCSS,
         extractLESS,
-        createHTML
+        ...createHTML
     ]
 };

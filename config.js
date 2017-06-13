@@ -19,8 +19,10 @@ let config = {
     },
     files: {
         entryFile: 'index.jsx',
-        buildFile: 'bundle.js',
-        template: 'template.html',
+        loginFile: 'login.jsx',
+        buildFile: '[name].bundle.js',
+        mainTemplate: 'main.html',
+        loginTemplate: 'login.html',
         favicon: 'favicon.ico'
     },
     ssl: {
@@ -56,6 +58,11 @@ let config = {
             limit: '10mb'
         }
     }
+};
+
+config['chunks'] = {
+    main: path.join(config.directories.application, config.files.entryFile),
+    login: path.join(config.directories.application, config.files.loginFile)
 };
 
 module.exports = config;
