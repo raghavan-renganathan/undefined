@@ -35,7 +35,7 @@ class LoginOptions extends React.Component {
     render () {
         return (
             <Container className="m-t-60">
-                <Container className="row full-width">
+                <Container className="row full-width no-margin">
                     <Container className="col-md-4 no-float center-margin">
                         <InputBox label="Username" type="text" placeholder="Enter your email or username"/>
                         <InputBox label="Password" type="password" placeholder="Enter your password"/>
@@ -46,7 +46,7 @@ class LoginOptions extends React.Component {
                     </Container>
                 </Container>
                 <Separator/>
-                <Container className="row full-width">
+                <Container className="row full-width no-margin">
                     <Container className="col-md-4 no-float center-margin">
                         Or login using &nbsp;
                         <Button size="sm" type="complete">
