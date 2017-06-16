@@ -27,6 +27,25 @@ let config = {
         loginTemplate: 'login.html',
         favicon: 'favicon.ico'
     },
+    database: {
+        dialect: 'postgres',
+        host: 'localhost',
+        port: 5432,
+        database: 'undefined',
+        username: 'postgres',
+        password: 'postgres',
+        // Options for sequelize
+        pool: {
+            min: 0,
+            max: 10,
+            idle: 100
+        },
+        logLevel: 'verbose'
+    },
+    logger: {
+        levels: ['error', 'warn', 'info', 'verbose', 'html', 'silly'],
+        dateFormat: 'isoDateTime'
+    },
     ssl: {
         enabled: true,
         key: path.join(__dirname, 'server', 'ssl_key', 'key.pem'),
