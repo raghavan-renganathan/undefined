@@ -35,6 +35,7 @@ let config = {
         username: 'postgres',
         password: 'postgres',
         // Options for sequelize
+        forceSync: false,
         pool: {
             min: 0,
             max: 10,
