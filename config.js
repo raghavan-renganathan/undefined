@@ -29,8 +29,8 @@ let config = {
     },
     ssl: {
         enabled: true,
-        key: path.join(__dirname, 'server', 'key.pem'),
-        cert: path.join(__dirname, 'server', 'cert.pem')
+        key: path.join(__dirname, 'server', 'ssl_key', 'key.pem'),
+        cert: path.join(__dirname, 'server', 'ssl_key', 'cert.pem')
     },
     server: {
         port: 3000,
