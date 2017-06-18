@@ -5,7 +5,7 @@
  */
 
 let app = require('../app');
-let debug = require('debug')('test:server');
+let log = require('../server/utils/logger');
 let http = require('http');
 let https = require('https');
 let fs = require('fs-extra');
@@ -103,5 +103,5 @@ function onListening() {
   let bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+  log.info('Listening on ' + bind);
 }

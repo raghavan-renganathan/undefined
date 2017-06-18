@@ -3,7 +3,7 @@
  * @description: logger
  */
 const logger = require('npmlog');
-const deteFormat = require('dateformat');
+const dateFormat = require('dateformat');
 const config = require('../../config')['logger'];
 
 const log = {};
@@ -27,4 +27,4 @@ config.levels.forEach((level) => {
     }
 });
 
-module.exports = {log};
+module.exports = log;
