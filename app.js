@@ -16,7 +16,7 @@ const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 
 // setting up favicon and logger
 app.use(favicon(path.join(config.directories.images, config.files.favicon)));
