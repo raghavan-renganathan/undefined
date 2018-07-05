@@ -1,7 +1,7 @@
 const sass = require('node-sass');
 const fs = require('fs');
 const path = require('path');
-const log = require('../../../server/utils/logger');
+const log = require('../../utils/logger');
 const configFile = path.resolve(__dirname, '../scss-parser.config.json').toString();
 
 /**
