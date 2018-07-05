@@ -5,15 +5,13 @@
 const path = require('path');
 const packageJSON = require('./package.json');
 
-const APP_DIR = path.join(__dirname, 'src/app'),
-    BUILD_DIR = path.join(__dirname, 'public');
+const BUILD_DIR = path.join(__dirname, 'build');
 const config = {
     name: packageJSON.name,
     version: packageJSON.version,
     directories: {
-        application: APP_DIR,
         build: BUILD_DIR,
-        images: path.join(__dirname, 'src/images')
+        images: path.join(__dirname, 'src/assets/images')
     },
     database: {},
     logger: {
@@ -29,9 +27,9 @@ const config = {
         port: 3000,
         contextPath: '/main',
         routes: {},
-        assetsPath: {
+        paths: {
             images: '/images',
-            publicDir: '/'
+            app: '/'
         }
     },
     session: {

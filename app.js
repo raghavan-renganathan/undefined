@@ -5,7 +5,6 @@
 const express = require('express');
 const session = require('express-session');
 const path = require('path');
-const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
@@ -18,8 +17,7 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-// setting up favicon and logger
-app.use(favicon(path.join(config.directories.images, config.files.favicon)));
+// setting up logger
 app.use(logger('dev'));
 
 // setting up body-parser
@@ -33,8 +31,8 @@ app.use(session(config.session));
 app.use(cookieParser());
 
 // setting up base directory
-app.use(config.server.assetsPath.publicDir, express.static(config.directories.publicDir));
-app.use(config.server.assetsPath.images, express.static(config.directories.images));
+app.use(config.server.paths.app, express.static(config.directories.build));
+app.use(config.server.paths.images, express.static(config.directories.images));
 
 // setting up routes,
 Object.keys(config.server.routes).forEach((route) => {

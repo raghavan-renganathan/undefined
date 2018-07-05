@@ -1,6 +1,9 @@
 /**
- * Created by raghavan on 16/6/17.
- * @description: logger
+ * The logger object that can be used to log details
+ *
+ * @author Raghavan Renganathan <renganathan.raghavan@gmail.com>
+ * @version 1.0
+ * @since Thu Jul 5 2018
  */
 const logger = require('npmlog');
 const dateFormat = require('dateformat');
@@ -13,17 +16,17 @@ const timeStamp = function () {
 };
 
 config.levels.forEach((level) => {
-    log[level] = function (...arguments) {
+    log[level] = function (...args) {
         let prefix = timeStamp();
-        if (typeof arguments[0] === 'object') {
-            let tags = Object.keys(arguments[0]);
-            tags.forEach((tag, index) => {
-                prefix += ` | ${tag}: ${arguments[0][tag]}`;
+        if (typeof args[0] === 'object') {
+            let tags = Object.keys(args[0]);
+            tags.forEach((tag) => {
+                prefix += ` | ${tag}: ${args[0][tag]}`;
             });
-            arguments.splice(0,1);
+            args.splice(0,1);
         }
         prefix += ' |';
-        logger[level](prefix, ...arguments);
+        logger[level](prefix, ...args);
     }
 });
 
