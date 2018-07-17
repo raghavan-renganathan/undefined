@@ -38,6 +38,13 @@ class LoginForm extends React.PureComponent {
         };
         this.handleUsernameChange = this.handleUsernameChange.bind(this);
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
+
+        this.usernameElement = React.createRef();
+        this.passwordElement = React.createRef();
+    }
+
+    componentDidMount() {
+        this.usernameElement.current.focus();
     }
 
     /**
@@ -66,7 +73,7 @@ class LoginForm extends React.PureComponent {
         return (
             <div className="login-form-container">
                 <div className="login-form">
-                    <div className="progress-bar" role="progressbar"></div>
+                    <div className="progress-bar" role="progressbar" />
                     <div className="content">
                         <IntroContent src={logo} content={LoginForm.CONTENT} subContent={LoginForm.SUB_CONTENT}/>
                         <div className="form-elements">
@@ -77,6 +84,7 @@ class LoginForm extends React.PureComponent {
                                 label={LoginForm.USERNAME_LABEL}
                                 errorText={LoginForm.USERNAME_ERROR}
                                 invalid={this.state.usernameInvalid}
+                                ref={this.usernameElement}
                             />
                             <InputTextField
                                 name="password"
@@ -86,11 +94,28 @@ class LoginForm extends React.PureComponent {
                                 label={LoginForm.PASSWORD_LABEL}
                                 errorText={LoginForm.PASSWORD_ERROR}
                                 invalid={this.state.passwordInvalid}
+                                ref={this.passwordElement}
                             />
-                            <CustomButton
-                                type="primary"
-                                text="Sign in"
-                            />
+                            <div className="troubleshoot-container">
+                                <CustomButton
+                                    theme="link"
+                                    text="Trouble signing in?"
+                                    noMargin
+                                />
+                            </div>
+                            <div className="next-step-container">
+                                <div className="create-account-container">
+                                    <CustomButton
+                                        theme="link"
+                                        text="New user? Register now."
+                                    />
+                                </div>
+                                <div className="sign-in-container">
+                                    <CustomButton
+                                        text="Sign in"
+                                    />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

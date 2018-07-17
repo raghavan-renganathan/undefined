@@ -14,6 +14,7 @@ import './CustomButton.css';
 class CustomButton extends React.Component {
     constructor(props) {
         super(props);
+        this._onClick = this._onClick.bind(this);
     }
 
     /**
@@ -24,24 +25,34 @@ class CustomButton extends React.Component {
      * @private
      */
     _onClick(event) {
-
+        if (typeof this.props.onClick === 'function') {
+            this.props.onClick(event);
+        }
     }
 
     render() {
         return (
-            <div className="custom-button-container">
-                <button className={`btn btn-${this.props.type || 'primary'}`} onClick={this.props.onClick}>
-                    {this.props.text}
-                </button>
+            <div className={`custom-button-container ${this.props.theme}`} role="button" onClick={this._onClick} >
+                <div className="pseudo-button" />
+                <content className="button-inner-text">
+                    <span className={`${this.props.noMargin ? 'no-margin' : ''}`}>{this.props.text}</span>
+                </content>
             </div>
         );
     }
 }
 
+CustomButton.defaultProps = {
+    theme: 'default',
+    text: '',
+    noMargin: false
+};
+
 CustomButton.propTypes = {
-    type: PropTypes.string,
     text: PropTypes.string,
     onClick: PropTypes.func,
+    theme: PropTypes.string,
+    noMargin: PropTypes.bool
 };
 
 export default CustomButton;

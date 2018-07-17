@@ -20,6 +20,13 @@ class InputTextField extends React.PureComponent {
     }
 
     /**
+     * This function is used by the parent component to force focus the element
+     */
+    focus() {
+        this.input.current.focus();
+    }
+
+    /**
      * This function handles the animation effect of moving placeholder to title of a form element
      * when it is focused.
      * And at the same time removing the error indication if present.

@@ -1,6 +1,5 @@
 .login-form-container {
   .login-form {
-
     margin: auto;
   }
 }
@@ -29,7 +28,19 @@
         width: 450px;
 
         .form-elements {
-          margin: 10px auto;
+          margin: 20px auto;
+
+          .next-step-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-left: -8px;
+            margin-top: 32px;
+            min-height: 48px;
+            padding-bottom: 20px;
+
+
+          }
         }
       }
     }
