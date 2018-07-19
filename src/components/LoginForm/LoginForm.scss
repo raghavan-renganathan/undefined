@@ -1,6 +1,29 @@
 .login-form-container {
+  min-height: 100vh;
+
   .login-form {
     margin: auto;
+
+    .content {
+      padding: 24px 24px 36px;
+      margin: 0 auto;
+      display: block;
+      max-width: 100%;
+
+      .form-elements {
+        margin: 20px auto;
+
+        .next-step-container {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          margin-left: -8px;
+          margin-top: 32px;
+          min-height: 48px;
+          padding-bottom: 20px;
+        }
+      }
+    }
   }
 }
 
@@ -14,6 +37,7 @@
       content: '';
       display: block;
       flex-grow: 1;
+      min-height: 30px;
     }
 
     .login-form {
@@ -49,6 +73,39 @@
       content: '';
       display: block;
       flex-grow: 1;
+      min-height: 30px;
+    }
+  }
+}
+
+@media only screen and (min-width: 450px) {
+  .login-form-container {
+    min-height: 100vh;
+
+    .login-form {
+
+      .content {
+        padding: 48px 40px 36px;
+        margin: 0 auto;
+        display: block;
+        width: 450px;
+
+        .form-elements {
+          margin: 20px auto;
+
+          .next-step-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-left: -8px;
+            margin-top: 32px;
+            min-height: 48px;
+            padding-bottom: 20px;
+
+
+          }
+        }
+      }
     }
   }
 }

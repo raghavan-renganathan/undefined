@@ -13,7 +13,15 @@ const config = {
         build: BUILD_DIR,
         images: path.join(__dirname, 'src/assets/images')
     },
-    database: {},
+    database: {
+        dialect: 'mongodb',
+        url: 'localhost',
+        post: 12707,
+        db: 'undefined',
+        parameters: {
+            // TODO: Check what params mongoose requires
+        }
+    },
     logger: {
         levels: ['error', 'warn', 'info', 'verbose', 'html', 'silly'],
         dateFormat: 'isoDateTime'
@@ -34,11 +42,12 @@ const config = {
     },
     session: {
         name: 'undefined',
-        secret: 'untold-secret',
+        secret: 'QbyebWZoLhcADG3NReUr4v06mQlCsNgn',
         resave: false,
         saveUninitialized: false,
         cookie: {
-            path: '/'
+            path: '/',
+            maxAge: (10 * 60 * 60 * 1000) // 10 Minutes
         }
     },
     bodyParser: {
