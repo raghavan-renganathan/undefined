@@ -5,7 +5,7 @@
  */
 
 let app = require('../app');
-let log = require('../server/utils/logger');
+let log = require('../custom_scripts/utils/logger');
 let http = require('http');
 let https = require('https');
 let fs = require('fs-extra');

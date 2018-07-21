@@ -1,0 +1,75 @@
+@import "../../utils/ColorConstants.scss";
+
+.custom-button-container {
+  border: 0;
+  border-radius: 3px;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  outline: none;
+  overflow: hidden;
+  font-weight: 500;
+  line-height: 20px;
+  min-width: 88px;
+  -webkit-tap-highlight-color: transparent;
+
+  &.default {
+    background-color: $BLUE;
+    color: $WHITE;
+    text-align: center;
+    text-transform: uppercase;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12),
+    0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    transition: box-shadow .28s cubic-bezier(0.4, 0.0, 0.2, 1);
+
+    .pseudo-button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: transparent;
+    }
+
+    .button-inner-text {
+      position: relative;
+
+      span {
+        display: inline-block;
+        margin: 8px 16px;
+      }
+    }
+  }
+
+  &.link {
+    background-color: $WHITE;
+    color: $BLUE;
+    text-transform: none;
+    min-width: 0;
+
+    .pseudo-button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: transparent;
+    }
+
+    .button-inner-text {
+      position: relative;
+      margin: 0;
+
+      span {
+        font-weight: 400;
+        display: inline-block;
+        margin: 8px;
+      }
+    }
+  }
+
+  span.no-margin {
+    margin: 0 !important;
+  }
+}
