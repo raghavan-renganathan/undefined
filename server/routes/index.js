@@ -8,5 +8,5 @@
 const AuthenticationRoute = require('./authentication');
 
 module.exports = {
-    AuthenticationRoute
+    routes: [...AuthenticationRoute]
 };

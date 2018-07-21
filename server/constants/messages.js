@@ -7,5 +7,6 @@
  */
 
 module.exports = {
-    SUCCESS: 'success'
+    SUCCESS: 'success',
+    UNAUTHORIZED: 'Invalid request or not enough privileges'
 };
