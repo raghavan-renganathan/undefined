@@ -20,7 +20,7 @@ module.exports = {
     find: (query, callback) => {
         UserModel.find(query, (err, result) => {
             if (err) {
-                log.error(`Error when finding the user:: ${err.message()}`);
+                log.error(`Error when finding the user:: ${err.message}`);
             }
 
             callback(err, result);
@@ -36,7 +36,7 @@ module.exports = {
     getAll: (callback) => {
         UserModel.find({}, (err, result) => {
             if (err) {
-                log.error(`Error when fetching all the users: ${err.message()}`);
+                log.error(`Error when fetching all the users: ${err.message}`);
             }
 
             callback(err, result);
@@ -52,7 +52,7 @@ module.exports = {
     insert: (user, callback) => {
         UserModel.create(user, (err, result) => {
             if (err) {
-                log.error(`Error when inserting the record: ${err.message()}`);
+                log.error(`Error when inserting the record: ${err.message}`);
             }
 
             callback(err, result);

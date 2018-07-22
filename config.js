@@ -16,10 +16,10 @@ const config = {
     database: {
         dialect: 'mongodb',
         url: 'localhost',
-        post: 12707,
+        port: 27017,
         db: 'undefined',
         parameters: {
-            // TODO: Check what params mongoose requires
+            useNewUrlParser: true
         }
     },
     logger: {

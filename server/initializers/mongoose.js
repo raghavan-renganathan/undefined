@@ -8,12 +8,23 @@
 
 const mongoose = require('mongoose');
 const { database } = require('../../config');
+const log = require('../../custom_scripts/utils/logger');
 
 module.exports = {
-    initialize: function() {
-        const url = `${database.dialect}://${database.url}/${database.db}`;
+    initialize: async () => {
+        const url = `${database.dialect}://${database.url}:${database.port}/${database.db}`;
 
         mongoose.Promise = global.Promise;
-        mongoose.connect(url, database.parameters);
+        log.info('Connecting to MongoDB with following configuration:');
+        log.info({url});
+        mongoose.connection.once('open', () => {
+            log.info(`Connected to ${database.db} successfully.`);
+        });
+        await mongoose
+            .connect(url, database.parameters)
+            .catch((err) => {
+                log.error('Failed to connect to MongoDB: ', err.message);
+                process.exit(1);
+            });
     }
 };

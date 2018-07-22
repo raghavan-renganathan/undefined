@@ -25,8 +25,9 @@ module.exports = {
                 if (err) {
                     res.status(STATUS.UNAUTHORIZED);
                     res.send({
-                        message: err.message()
+                        message: err.message
                     });
+                    return;
                 }
 
                 // Save the username in session
@@ -40,9 +41,9 @@ module.exports = {
                 });
             })
             .catch((err) => {
-                res.status(STATUS.UNAUTHORIZED);
+                res.status(STATUS.INTERNAL_SERVER_ERROR);
                 res.send({
-                    message: err.message()
+                    message: err.message
                 });
             });
     }
