@@ -18,12 +18,12 @@ module.exports = {
      * @param callback {function} The callback that has to be called with the results or error
      */
     find: (query, callback) => {
-        UserModel.find(query, (err, result) => {
+        UserModel.findOne(query, (err, result) => {
             if (err) {
-                log.error(`Error when finding the user:: ${err.message()}`);
+                log.error(`Error when finding the user:: ${err.message}`);
             }
 
-            callback(err, result);
+            callback(err, result.toObject());
         });
     },
 
@@ -36,7 +36,7 @@ module.exports = {
     getAll: (callback) => {
         UserModel.find({}, (err, result) => {
             if (err) {
-                log.error(`Error when fetching all the users: ${err.message()}`);
+                log.error(`Error when fetching all the users: ${err.message}`);
             }
 
             callback(err, result);
@@ -52,7 +52,7 @@ module.exports = {
     insert: (user, callback) => {
         UserModel.create(user, (err, result) => {
             if (err) {
-                log.error(`Error when inserting the record: ${err.message()}`);
+                log.error(`Error when inserting the record: ${err.message}`);
             }
 
             callback(err, result);

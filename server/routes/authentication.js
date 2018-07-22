@@ -9,12 +9,19 @@
 const {
     AuthenticationHandler
 } = require('../handlers');
+
 const { METHODS } = require('../constants');
 
 module.exports = [
     {
         url: '/api/login',
         method: METHODS.POST,
+        middleware: null,
         handler: AuthenticationHandler.login
+    }, {
+        url: '/api/logout',
+        method: METHODS.POST,
+        middleware: null,
+        handler: AuthenticationHandler.logout
     }
 ];

@@ -7,5 +7,7 @@
  */
 
 module.exports = {
-    SUCCESS: 'success'
+    SUCCESS: 'success',
+    INVALID_CREDENTIALS: 'Invalid username or password',
+    UNAUTHORIZED: 'Invalid request or not enough privileges'
 };

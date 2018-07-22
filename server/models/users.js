@@ -23,6 +23,6 @@ const schema = new mongoose.Schema({
         unique: true,
         required: true
     }
-});
+}, { collection: 'Users' });
 
 module.exports = mongoose.model('Users', schema);

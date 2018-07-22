@@ -7,6 +7,7 @@
  */
 
 const { UsersDao } = require('../dao');
+const { MESSAGES } = require('../constants')
 const _ = require('underscore');
 
 module.exports = {
@@ -20,19 +21,15 @@ module.exports = {
      */
     authenticate: (username, password) => {
         return new Promise((resolve, reject) => {
-            UsersDao.find({ username }, (err, result) => {
+            UsersDao.find({ username, password }, (err, result) => {
                 if (err) {
                     reject(err);
                 }
 
                 if (_.isEmpty(result) || result === null) {
-                    reject(new Error('Authentication failed'));
+                    resolve(new Error(MESSAGES.INVALID_CREDENTIALS));
                 } else {
-                    if (_.isEqual(password, _.first(result)['password'])) {
-                        resolve();
-                    } else {
-                        reject(new Error('Authentication failed'));
-                    }
+                    resolve();
                 }
             });
         });

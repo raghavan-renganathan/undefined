@@ -10,6 +10,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 
 const config = require('./config');
+const { routes } = require('./server/routes');
 
 const {
     MongooseInitializer
@@ -42,8 +43,12 @@ app.use(config.server.paths.app, express.static(config.directories.build));
 app.use(config.server.paths.images, express.static(config.directories.images));
 
 // setting up routes,
-Object.keys(config.server.routes).forEach((route) => {
-    app.use(route, require(path.resolve('./routes', config.server.routes[route] + '.js')));
+routes.forEach((route) => {
+    if (typeof route.middleware === 'function') {
+        app[route.method](route.url, route.middleware, route.handler);
+    } else {
+        app[route.method](route.url, route.handler);
+    }
 });
 
 // catch 404 and forward to error handler

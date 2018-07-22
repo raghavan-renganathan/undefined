@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "dev-front-end": "concurrently --kill-others \"npm run watch-sass\" \"react-scripts start\"",
-    "dev-back-end": "nodemon -e js -x \"npm restart\"",
+    "dev-back-end": "nodemon -e js -x \"node ./bin/www\"",
     "build": "npm run parse-scss && react-scripts build",
     "prestart": "npm run build",
     "start": "./node_modules/.bin/forever start ./bin/www",
