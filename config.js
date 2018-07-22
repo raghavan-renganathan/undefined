@@ -32,7 +32,7 @@ const config = {
         cert: path.join(__dirname, 'server', 'ssl_key', 'cert.pem')
     },
     server: {
-        port: 3000,
+        port: 8000,
         contextPath: '/main',
         routes: {},
         paths: {
