@@ -46,5 +46,15 @@ module.exports = {
                     message: err.message
                 });
             });
+    },
+
+    logout: (req, res) => {
+        req.session.username = undefined;
+        req.session.save();
+
+        res.status(STATUS.OK);
+        res.send({
+            message: MESSAGES.SUCCESS
+        });
     }
 };

@@ -21,7 +21,7 @@ module.exports = {
      */
     authenticate: (username, password) => {
         return new Promise((resolve, reject) => {
-            UsersDao.find({ username }, (err, result) => {
+            UsersDao.find({ username, password }, (err, result) => {
                 if (err) {
                     reject(err);
                 }
@@ -29,11 +29,7 @@ module.exports = {
                 if (_.isEmpty(result) || result === null) {
                     resolve(new Error(MESSAGES.INVALID_CREDENTIALS));
                 } else {
-                    if (_.isEqual(password, _.first(result)['password'])) {
-                        resolve();
-                    } else {
-                        resolve(new Error(MESSAGES.INVALID_CREDENTIALS));
-                    }
+                    resolve();
                 }
             });
         });

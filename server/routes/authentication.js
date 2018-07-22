@@ -18,5 +18,10 @@ module.exports = [
         method: METHODS.POST,
         middleware: null,
         handler: AuthenticationHandler.login
+    }, {
+        url: '/api/logout',
+        method: METHODS.POST,
+        middleware: null,
+        handler: AuthenticationHandler.logout
     }
 ];
